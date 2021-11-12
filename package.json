@@ -1,0 +1,63 @@
+{
+  "name": "open-project-folder",
+	"displayName": "Open Project Folder",
+	"description": "Open projects from VSCode commands",
+	"version": "1.0.0",
+	"publisher": "zigapeda",
+	"engines": {
+		"vscode": "^1.61.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "onCommand:open-project-folder.openproject"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "open-project-folder.openproject",
+				"title": "Open Project"
+			}
+		],
+		"configuration": {
+      "title": "Open Project Folder",
+      "properties": {
+        "open-project-folder.projectFolders": {
+          "type": "array",
+					"items": {
+						"type": "string"
+					},
+          "description": "A list of paths to your projects",
+          "default": [],
+					"scope": "machine"
+        }
+      }
+    }
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.61.0",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"@vscode/test-electron": "^1.6.2",
+		"eslint": "^8.1.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.3",
+		"typescript": "^4.4.4"
+	},
+	"repository": {
+		
+	}
+}
